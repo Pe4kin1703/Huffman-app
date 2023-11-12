@@ -12,6 +12,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Charts)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Charts)
 
+qt6_add_resources(RESOURCE_FILES resources.qrc)
+
+
 set(HUFFMAN_FILES
         Huffman/huffmanencoder.cpp
         Huffman/huffmanencoder.h
@@ -21,6 +24,10 @@ set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
+        encryptionpage.h
+        encryptionpage.cpp
+        infopage.h
+        infopage.cpp
         mainwindow.ui
         ${HUFFMAN_FILES}
 )
@@ -29,6 +36,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(mobile-app-huffman
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        ${RESOURCE_FILES}
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET mobile-app-huffman APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

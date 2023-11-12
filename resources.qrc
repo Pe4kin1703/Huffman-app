@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image.jpeg</file>
+        <file>infopage.h</file>
+        <file>infopage.cpp</file>
+    </qresource>
+</RCC>
